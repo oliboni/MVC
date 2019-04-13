@@ -1,0 +1,13 @@
+node_modules/.bin/sequelize
+model:generate
+--name Author --attributes first_name:string, last_name:string
+
+//Cria o banco de dados utilizando os parámetros do arquivo authors.js
+ node_modules/.bin/sequelize db:create
+
+//Faz a migração
+ node_modules/.bin/sequelize db:migrate
+ Ou
+ node_modules/.bin/sequelize db:migrate:undo
+ Ou
+ node_modules/.bin/sequelize db:migrate:undo --nome_da_migracao

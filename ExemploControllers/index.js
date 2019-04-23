@@ -3,6 +3,7 @@
 var express = require('express')
 var app = express()
 var AuthorsControllers = require("./app/Controllers/AuthorsControllers")
+var BookControllers = require("./app/Controllers/BookControllers")
 
 /*app.get('/', function(req,res) {
     res.send('Hello World!')
@@ -17,7 +18,7 @@ app.listen(3000, function() {
 })*/
 
 app.use("/authors", AuthorsControllers)
-
+app.use("/book", BookControllers)
 app.listen(3000, function(){
     console.log("Server ouvindo na porta 3000!")
 })

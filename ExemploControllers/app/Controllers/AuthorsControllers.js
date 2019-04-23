@@ -1,7 +1,4 @@
-const express = require('express')
-const router = express.Router()
-const models = require('../models')
-const bodyParser = require('body-parser')
+const express = require('express'), router = express.Router(), models = require('../models'), bodyParser = require('body-parser')
 router.use(bodyParser.urlencoded({extended: true}))
 router.use(bodyParser.json())
 

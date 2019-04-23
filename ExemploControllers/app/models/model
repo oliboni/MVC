@@ -1,8 +1,7 @@
-node_modules/.bin/sequelize
-model:generate
---name Author --attributes first_name:string, last_name:string
+//Lembrando que tem não pode conter espaço entre os atributos
+node_modules/.bin/sequelize model:generate --name Author --attributes first_name:string,last_name:string
 
-//Cria o banco de dados utilizando os parámetros do arquivo authors.js
+//Cria o banco de dados utilizando os parámetros do arquivo database.js
  node_modules/.bin/sequelize db:create
 
 //Faz a migração

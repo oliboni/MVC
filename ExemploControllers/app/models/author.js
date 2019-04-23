@@ -1,4 +1,6 @@
+//chama exceções quando usamos variáveis não declaradas
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   const Author = sequelize.define('Author', {
     first_name: DataTypes.STRING,

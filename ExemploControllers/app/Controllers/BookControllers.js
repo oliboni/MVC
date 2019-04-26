@@ -11,7 +11,9 @@ router.post('/', function (req, res) {
 
 //Get All
 router.get('/', function (req, res) {
-    models.Book.findAll().then(
+    models.Book.findAll({include:
+            {model: models.Author
+            }}).then(
         book=> res.status(200).send(book)
     ).catch(erro => res.status(500).send(erro))
 })

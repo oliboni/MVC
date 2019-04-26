@@ -1,6 +1,13 @@
 //Lembrando que tem não pode conter espaço entre os atributos
 node_modules/.bin/sequelize model:generate --name Author --attributes first_name:string,last_name:string
 
+node_modules/.bin/sequelize = --------Binário
+model:generate = ---------------------oque vai acontecer
+--name Book = ------------------------Nome da tabela
+--attributes = -----------------------Atributos da tabela
+first_name:string,last_name:string = -Declaração dos atributos da tabela
+
+
 //Cria o banco de dados utilizando os parámetros do arquivo database.js
  node_modules/.bin/sequelize db:create
 
@@ -10,3 +17,5 @@ node_modules/.bin/sequelize model:generate --name Author --attributes first_name
  node_modules/.bin/sequelize db:migrate:undo
  Ou
  node_modules/.bin/sequelize db:migrate:undo --nome_da_migracao
+
+ //Criar uma entidade para criar usuário utilizando

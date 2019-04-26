@@ -7,7 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     last_name: DataTypes.STRING
   }, {});
   Author.associate = function(models) {
-    // associations can be defined here
+    Author.hasMany(models.Book,
+        {foreignKey: 'id_author'}
+        )
   };
   return Author;
 };

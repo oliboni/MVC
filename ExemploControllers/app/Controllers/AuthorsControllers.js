@@ -11,7 +11,7 @@ router.post('/', function (req, res) {
 
 //Get all
 router.get('/', function(req, res) {
-    models.Author.findAll().then(
+    models.Author.findAll({include: {model: models.Book}}).then(
         authors => res.status(200).send(authors)
     )
 })

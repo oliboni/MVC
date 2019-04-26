@@ -9,6 +9,6 @@ module.exports = (sequelize, dataType) => {
     User.associate = function (models) {
 
     }
-
+        .
     return User
 }

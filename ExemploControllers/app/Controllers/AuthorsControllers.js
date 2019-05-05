@@ -1,4 +1,6 @@
 const express = require('express'), router = express.Router(), models = require('../models'), bodyParser = require('body-parser')
+const secutity = require("../helpers/security")
+
 router.use(bodyParser.urlencoded({extended: true}))
 router.use(bodyParser.json())
 
@@ -10,14 +12,14 @@ router.post('/', function (req, res) {
 })
 
 //Get all
-router.get('/', function(req, res) {
+router.get('/', secutity.verifyJWT, function(req, res) {
     models.Author.findAll({include: {model: models.Book}}).then(
         authors => res.status(200).send(authors)
     )
 })
 
 //Find one by id
-router.get('/:id', function(req, res) {
+router.get('/:id', secutity.verifyJWT, function(req, res) {
     models.Author.findByPk(req.params.id)
         .then(author => {
             if (!author) {
@@ -29,7 +31,7 @@ router.get('/:id', function(req, res) {
 })
 
 //Update
-router.put('/:id', function(req, res) {
+router.put('/:id', secutity.verifyJWT, function(req, res) {
     models.Author.findByPk(req.params.id).then(author => {
         if (!author) {
             res.status(404).send("NOT FOUND")
@@ -42,7 +44,7 @@ router.put('/:id', function(req, res) {
 })
 
 //Delete
-router.delete('/:id', function(req, res){
+router.delete('/:id', secutity.verifyJWT, function(req, res){
     models.Author.destroy({
         where: {id: req.params.id}
     }).then(author => {
